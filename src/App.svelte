@@ -1,29 +1,28 @@
 <script>
   import DatePicker from "./DatePicker.svelte";
 
-	// has current date
+  // has current date
   let currentDate = new Date();
-	
-	// 
-  const onDateChange = d => {
+
+  //
+  const onDateChange = (d) => {
     currentDate = d.detail;
   };
 </script>
 
-<h1>svelte-dates</h1>
+<h1>svelte-wates</h1>
 <!-- 
 DatePicker component
 Upstream Event - on:datechange (executes onDateChange)
 Param 1 - currentDate param (based on current date)
-
 -->
 <DatePicker
   on:datechange={onDateChange}
   selected={currentDate}
-  isAllowed={date => {
+  isAllowed={(date) => {
     const millisecs = date.getTime();
     if (millisecs + 25 * 3600 * 1000 < Date.now()) return false;
-    if (millisecs > Date.now() + 3600 * 24 * 45 * 1000) return false;
+    if (millisecs > Date.now() + 3600 * 24 * 10 * 1000) return false;
     return true;
   }} />
 

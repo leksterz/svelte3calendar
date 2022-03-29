@@ -10,10 +10,10 @@ const monthNames = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const isLeapYear = year => year % 4 === 0;
+const isLeapYear = (year) => year % 4 === 0;
 const getEmptyRows = () => {
   return Array.from({ length: 42 }).map(() => []);
 };
@@ -26,11 +26,11 @@ const getMonthStats = (monthIndex, year) => {
   const index = today.getMonth();
   return {
     name: index[index],
-    days: getMonthDays(index, year)
+    days: getMonthDays(index, year),
   };
 };
 
-export const getMonthName = index => monthNames[index];
+export const getMonthName = (index) => monthNames[index];
 
 export const getDateRows = (monthIndex, year) => {
   const { days } = getMonthStats(monthIndex, year);
@@ -40,7 +40,7 @@ export const getDateRows = (monthIndex, year) => {
     const index = startIndex + i;
     rows[index] = i + 1;
   });
-  const filled = rows.map(i => (Array.isArray(i) ? undefined : i));
+  const filled = rows.map((i) => (Array.isArray(i) ? undefined : i));
 
   return filled[35] ? filled : filled.slice(0, -7);
 };
