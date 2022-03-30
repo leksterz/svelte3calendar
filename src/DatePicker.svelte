@@ -42,7 +42,7 @@
     month -= 1;
   };
 
-  const onDateChange = d => {
+  const onDateChange = (d) => {
     showDatePicker = false;
     dispatch("datechange", d.detail);
   };
@@ -53,6 +53,7 @@
     position: relative;
   }
   .box {
+    background-color: rgb(241, 240, 240);
     position: absolute;
     top: 40px;
     left: 0px;
@@ -79,13 +80,9 @@
   {#if showDatePicker}
     <div class="box">
       <div class="month-name">
-        <div class="center">
-          <button on:click={prev}>Prev</button>
-        </div>
+        <div class="center"><button on:click={prev}>Prev</button></div>
         <div class="center">{getMonthName(month)} {year}</div>
-        <div class="center">
-          <button on:click={next}>Next</button>
-        </div>
+        <div class="center"><button on:click={next}>Next</button></div>
       </div>
       <Calender
         {month}

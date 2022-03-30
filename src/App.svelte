@@ -8,9 +8,24 @@
   const onDateChange = (d) => {
     currentDate = d.detail;
   };
+
+  // availability objects
+  let schedule = [
+    {
+      121: true,
+      12: true,
+      23: true,
+    },
+    {
+      121: false,
+      12: false,
+      23: true,
+    },
+  ];
 </script>
 
-<h1>svelte-wates</h1>
+<h1>Explode Booking</h1>
+<p>See availability below</p>
 <!-- 
 DatePicker component
 Upstream Event - on:datechange (executes onDateChange)
@@ -25,6 +40,12 @@ Param 1 - currentDate param (based on current date)
     if (millisecs > Date.now() + 3600 * 24 * 10 * 1000) return false;
     return true;
   }} />
+
+{#each schedule as day}
+  <p>{day[121]}</p>
+  <p>{day[12]}</p>
+  <p>{day[23]}</p>
+{/each}
 
 <!--
   // setInterval(() => {
